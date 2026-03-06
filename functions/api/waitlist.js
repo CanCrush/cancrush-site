@@ -1,3 +1,10 @@
+export async function onRequestGet() {
+  return new Response("Waitlist endpoint is live. POST only.", {
+    status: 200,
+    headers: { "Content-Type": "text/plain" },
+  });
+}
+
 export async function onRequestPost(context) {
   try {
     const { request, env } = context;
@@ -11,7 +18,6 @@ export async function onRequestPost(context) {
       });
     }
 
-    // Basic anti-spam: small delay + simple header check
     const ua = request.headers.get("User-Agent") || "";
     if (!ua) {
       return new Response(JSON.stringify({ ok: false, error: "missing_ua" }), {
@@ -20,8 +26,6 @@ export async function onRequestPost(context) {
       });
     }
 
-    // Email the signup to you using MailChannels (simple + free-ish)
-    // You must set WAITLIST_TO and WAITLIST_FROM in Pages project settings.
     const to = env.WAITLIST_TO;
     const from = env.WAITLIST_FROM;
 
