@@ -1,70 +1,161 @@
-export async function onRequestPost(context) {
-  try {
-    const { request, env } = context;
-    const body = await request.json();
-    const email = (body?.email || "").toString().trim().toLowerCase();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Can Crush</title>
+  <meta name="description" content="Crush a can. Drop a coin for scale. Upload the photo. Get ranked on the global leaderboard." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:16px;">Can Crush</div>
+          <div style="font-size:12px;color:rgba(243,245,255,.7);margin-top:2px;">AI-powered crush ranking</div>
+        </div>
+      </div>
+      <div class="pill">Live: cancrush.ai</div>
+    </div>
 
-    if (!email || !email.includes("@") || email.length > 254) {
-      return new Response(JSON.stringify({ ok: false, error: "invalid_email" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
+    <div class="hero">
+      <div class="card">
+        <h1 class="h1">Crush a can.<br>Get ranked.</h1>
+        <p class="sub">
+          Drop a coin for scale, snap the photo, and upload. Can Crush measures your crush and ranks it on the global leaderboard.
+          Built for tailgates, backyard battles, and internet bragging rights.
+        </p>
 
-    // Basic anti-spam: small delay + simple header check
-    const ua = request.headers.get("User-Agent") || "";
-    if (!ua) {
-      return new Response(JSON.stringify({ ok: false, error: "missing_ua" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
+        <div class="badges">
+          <span>🥇 Global leaderboard</span>
+          <span>👥 Friends & groups</span>
+          <span>📸 Upload + verify</span>
+          <span>🔥 Tailgate mode</span>
+        </div>
 
-    // Email the signup to you using MailChannels (simple + free-ish)
-    // You must set WAITLIST_TO and WAITLIST_FROM in Pages project settings.
-    const to = env.WAITLIST_TO;
-    const from = env.WAITLIST_FROM;
+        <div class="divider"></div>
 
-    if (!to || !from) {
-      return new Response(JSON.stringify({ ok: false, error: "env_not_set" }), {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
+        <div style="position:relative;">
+          <div style="font-weight:800;font-size:18px;">Join the waitlist</div>
+          <div class="small">Get early access + founder badge drops. No spam. Unsubscribe anytime.</div>
 
-    const msg = {
-      personalizations: [{ to: [{ email: to }] }],
-      from: { email: from, name: "Can Crush Waitlist" },
-      subject: "New Can Crush waitlist signup",
-      content: [
-        {
-          type: "text/plain",
-          value: `New waitlist signup:\n\nEmail: ${email}\nTime: ${new Date().toISOString()}\nUA: ${ua}\n`,
-        },
-      ],
-    };
+          <form class="form" id="waitlistForm">
+            <input class="input" type="email" name="email" id="email" placeholder="you@example.com" required />
+            <button class="btn btnPrimary" type="submit">Join Waitlist</button>
+            <a class="btn btnGhost" href="#how">How it works</a>
+          </form>
 
-    const resp = await fetch("https://api.mailchannels.net/tx/v1/send", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(msg),
-    });
+          <div class="toast" id="toastOk">✅ You’re on the list. Check your inbox soon.</div>
+          <div class="toast err" id="toastErr">❌ Something went wrong. Try again in a minute.</div>
 
-    if (!resp.ok) {
-      return new Response(JSON.stringify({ ok: false, error: "email_failed" }), {
-        status: 502,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
+          <div class="small" style="margin-top:12px;">
+            Prefer email? <a href="mailto:support@cancrush.ai?subject=Can Crush Waitlist" style="color:rgba(243,245,255,.92)">support@cancrush.ai</a>
+          </div>
+        </div>
 
-    return new Response(JSON.stringify({ ok: true }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
-  } catch (e) {
-    return new Response(JSON.stringify({ ok: false, error: "server_error" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+        <div class="divider"></div>
+
+        <div id="how" style="position:relative;text-align:left;">
+          <div style="font-weight:900;font-size:16px;margin-bottom:8px;">How it works</div>
+          <ol style="margin:0;padding-left:18px;line-height:1.7;color:rgba(243,245,255,.9);">
+            <li>Crush a can.</li>
+            <li>Place a coin next to it for scale.</li>
+            <li>Upload the photo.</li>
+            <li>We measure your crush and rank it.</li>
+            <li>Share your score and talk your trash politely (or not).</li>
+          </ol>
+        </div>
+
+        <div class="links">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="mailto:support@cancrush.ai">Support</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="position:relative;">
+          <div style="font-weight:900;font-size:16px;margin-bottom:10px;">Launch perks</div>
+          <div class="kpiGrid">
+            <div class="kpi">
+              <div class="label">Founder badge</div>
+              <div class="value">Early-access flair</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Invite rewards</div>
+              <div class="value">Unlockables</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Tailgate mode</div>
+              <div class="value">Time-boxed battles</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Share cards</div>
+              <div class="value">Instant brag posts</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div style="font-weight:900;font-size:16px;margin-bottom:8px;">The viral loop (simple)</div>
+          <div class="small">
+            Every crush generates a shareable score card. Friends tap it, download the app, and challenge you back.
+            Groups can run “best crush tonight” competitions — perfect for campuses, tailgates, and parties.
+          </div>
+
+          <div class="divider"></div>
+
+          <div style="font-weight:900;font-size:16px;margin-bottom:8px;">Support</div>
+          <div class="small">
+            Questions, partnerships, or “my buddy cheated” complaints:
+            <a href="mailto:support@cancrush.ai" style="color:rgba(243,245,255,.92)">support@cancrush.ai</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(async function(){
+  const form = document.getElementById("waitlistForm");
+  const email = document.getElementById("email");
+  const ok = document.getElementById("toastOk");
+  const err = document.getElementById("toastErr");
+
+  function show(el){
+    ok.style.display = "none";
+    err.style.display = "none";
+    el.style.display = "block";
   }
-}
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    ok.style.display = "none";
+    err.style.display = "none";
+
+    const payload = { email: email.value.trim() };
+    if(!payload.email) return;
+
+    try{
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(payload)
+      });
+
+      if(res.ok){
+        email.value = "";
+        show(ok);
+      }else{
+        show(err);
+      }
+    }catch(_){
+      show(err);
+    }
+  });
+})();
+</script>
+</body>
+</html>
