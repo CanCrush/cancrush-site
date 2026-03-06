@@ -1,189 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Can Crush</title>
-  <meta
-    name="description"
-    content="Crush a can. Drop a coin for scale. Upload the photo. Get ranked on the global leaderboard."
-  />
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <div class="brand-title">Can Crush</div>
-          <div class="brand-subtitle">AI-powered crush ranking</div>
-        </div>
-      </div>
-      <div class="pill">Live: cancrush.ai</div>
-    </div>
+export async function onRequestPost(context) {
+  try {
+    const { request, env } = context;
+    const body = await request.json();
+    const email = (body?.email || "").toString().trim().toLowerCase();
 
-    <section class="hero">
-      <div class="card hero-main">
-        <div class="eyebrow">Tailgates. Backyards. Bragging rights.</div>
-
-        <h1>Crush a can.<br />Get ranked.</h1>
-
-        <p class="sub">
-          Drop a coin for scale, snap the photo, and upload. Can Crush measures
-          your crush and ranks it on the leaderboard.
-        </p>
-
-        <div class="badges">
-          <span>🥇 Global leaderboard</span>
-          <span>👥 Friends & groups</span>
-          <span>📸 Upload + verify</span>
-          <span>🔥 Tailgate mode</span>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="waitlist-block">
-          <h2>Join the waitlist</h2>
-          <p class="small">
-            Get early access and founder status when Can Crush launches.
-          </p>
-
-          <form class="form" id="waitlistForm">
-            <input
-              class="input"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="you@example.com"
-              required
-            />
-            <button class="btn btnPrimary" type="submit">Join Waitlist</button>
-          </form>
-
-          <div class="toast" id="toastOk">✅ You’re on the list.</div>
-          <div class="toast err" id="toastErr">❌ Something went wrong. Try again.</div>
-
-          <div class="small contact-line">
-            Questions? <a href="mailto:support@cancrush.ai">support@cancrush.ai</a>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="how-it-works">
-          <h3>How it works</h3>
-          <ol>
-            <li>Crush a can.</li>
-            <li>Place a coin next to it for scale.</li>
-            <li>Upload the photo.</li>
-            <li>Get measured and ranked.</li>
-            <li>Share the score and challenge your friends.</li>
-          </ol>
-        </div>
-
-        <div class="links">
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="mailto:support@cancrush.ai">Support</a>
-        </div>
-      </div>
-
-      <div class="card side-panel">
-        <div class="panel-section">
-          <div class="section-title">Top Crushes Preview</div>
-
-          <div class="leaderboard-row">
-            <span class="rank">1</span>
-            <span class="name">Tyler</span>
-            <span class="score">2.18 in</span>
-          </div>
-
-          <div class="leaderboard-row">
-            <span class="rank">2</span>
-            <span class="name">Megan</span>
-            <span class="score">2.21 in</span>
-          </div>
-
-          <div class="leaderboard-row">
-            <span class="rank">3</span>
-            <span class="name">Jake</span>
-            <span class="score">2.26 in</span>
-          </div>
-
-          <div class="leaderboard-row">
-            <span class="rank">4</span>
-            <span class="name">Chris</span>
-            <span class="score">2.31 in</span>
-          </div>
-
-          <div class="small">Smaller crush. Better rank. Bigger bragging rights.</div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="panel-section">
-          <div class="section-title">Founder Perks</div>
-          <ul class="perks">
-            <li>Founder badge eligibility</li>
-            <li>Early access to challenge mode</li>
-            <li>First look at group competitions</li>
-            <li>Front-row status at launch</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    (function () {
-      const form = document.getElementById("waitlistForm");
-      const email = document.getElementById("email");
-      const ok = document.getElementById("toastOk");
-      const err = document.getElementById("toastErr");
-
-      function resetToasts() {
-        ok.style.display = "none";
-        err.style.display = "none";
-      }
-
-      form.addEventListener("submit", async function (event) {
-        event.preventDefault();
-        resetToasts();
-
-        const payload = { email: email.value.trim() };
-
-        if (!payload.email) {
-          err.textContent = "❌ Please enter a valid email.";
-          err.style.display = "block";
-          return;
-        }
-
-        try {
-          const response = await fetch("/api/waitlist", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-          });
-
-          if (!response.ok) {
-            const text = await response.text();
-            err.textContent = "❌ Signup failed. " + text;
-            err.style.display = "block";
-            return;
-          }
-
-          email.value = "";
-          ok.textContent = "✅ You’re on the list.";
-          ok.style.display = "block";
-        } catch (error) {
-          err.textContent = "❌ Something went wrong. Try again.";
-          err.style.display = "block";
-        }
+    if (!email || !email.includes("@") || email.length > 254) {
+      return new Response(JSON.stringify({ ok: false, error: "invalid_email" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
       });
-    })();
-  </script>
-</body>
-</html>
+    }
+
+    // Basic anti-spam: small delay + simple header check
+    const ua = request.headers.get("User-Agent") || "";
+    if (!ua) {
+      return new Response(JSON.stringify({ ok: false, error: "missing_ua" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    // Email the signup to you using MailChannels (simple + free-ish)
+    // You must set WAITLIST_TO and WAITLIST_FROM in Pages project settings.
+    const to = env.WAITLIST_TO;
+    const from = env.WAITLIST_FROM;
+
+    if (!to || !from) {
+      return new Response(JSON.stringify({ ok: false, error: "env_not_set" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    const msg = {
+      personalizations: [{ to: [{ email: to }] }],
+      from: { email: from, name: "Can Crush Waitlist" },
+      subject: "New Can Crush waitlist signup",
+      content: [
+        {
+          type: "text/plain",
+          value: `New waitlist signup:\n\nEmail: ${email}\nTime: ${new Date().toISOString()}\nUA: ${ua}\n`,
+        },
+      ],
+    };
+
+    const resp = await fetch("https://api.mailchannels.net/tx/v1/send", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(msg),
+    });
+
+    if (!resp.ok) {
+      return new Response(JSON.stringify({ ok: false, error: "email_failed" }), {
+        status: 502,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    return new Response(JSON.stringify({ ok: true }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ ok: false, error: "server_error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}
