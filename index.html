@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
@@ -10,58 +11,6 @@
 <meta name="description" content="Crush a can. Drop a coin for scale. Upload the photo. Get ranked on the global leaderboard." />
 
 <link rel="stylesheet" href="/styles.css" />
-
-<style>
-iframe[data-tally-src] {
-  filter: brightness(1.2);
-}
-
-iframe[data-tally-src] + div,
-iframe[data-tally-src] small {
-  font-size: 10px !important;
-  opacity: 0.6;
-}
-
-.hero-burst {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 14px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 700;
-  color: rgba(255,255,255,.96);
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
-  box-shadow: 0 10px 30px rgba(0,0,0,.18);
-}
-
-.section-glow {
-  position: relative;
-}
-
-.section-glow::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 120px;
-  height: 120px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(255,90,31,.14) 0%, rgba(255,90,31,0) 70%);
-  pointer-events: none;
-}
-
-.card-topline {
-  width: 72px;
-  height: 4px;
-  border-radius: 999px;
-  margin-bottom: 18px;
-  background: linear-gradient(90deg, #ff5a1f, #7c3aed);
-  box-shadow: 0 0 18px rgba(255,90,31,.35);
-}
-</style>
 
 </head>
 
@@ -72,10 +21,12 @@ iframe[data-tally-src] small {
 <div class="nav">
 
 <div class="brand">
+
 <div class="logo"></div>
 
 <div>
 <div style="font-size:16px;">Can Crush</div>
+
 <div style="font-size:12px;color:rgba(243,245,255,.7);margin-top:2px;">
 AI-powered crush ranking
 </div>
@@ -87,13 +38,13 @@ AI-powered crush ranking
 
 </div>
 
+
 <div class="hero">
+
 
 <!-- LEFT CARD -->
 
-<div class="card section-glow">
-
-<div class="card-topline"></div>
+<div class="card">
 
 <h1 class="h1">
 Crush a can.<br>
@@ -101,20 +52,27 @@ Get ranked.
 </h1>
 
 <p class="sub">
-Drop a coin for scale, snap the photo, and upload. Can Crush measures your crush and ranks it on the global leaderboard.
+
+Drop a coin for scale, snap the photo, and upload.  
+Can Crush measures your crush and ranks it on the global leaderboard.
+
 Built for tailgates, backyard battles, and internet bragging rights.
+
 </p>
 
+
 <div class="badges">
+
 <span>🥇 Global leaderboard</span>
 <span>👥 Friends & groups</span>
 <span>📸 Upload + verify</span>
 <span>🔥 Tailgate mode</span>
+
 </div>
 
-<div class="hero-burst">🔥 0 people already waiting to crush</div>
 
 <div class="divider"></div>
+
 
 <div>
 
@@ -126,24 +84,31 @@ Think you’ve got the best crush?
 Join the waitlist and prove it on the leaderboard.
 </div>
 
+
 <div style="margin-top:18px;">
 
-<iframe
-data-tally-src="https://tally.so/embed/RG4dav?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-loading="lazy"
-width="100%"
-height="214"
-frameborder="0"
-marginheight="0"
-marginwidth="0"
-title="Can Crush Waitlist">
-</iframe>
+<button
+class="btn btnPrimary"
+data-tally-open="RG4dav"
+data-tally-layout="modal"
+data-tally-width="420"
+data-tally-overlay="1"
+data-tally-hide-title="1"
+data-tally-emoji-text="🔥"
+data-tally-emoji-animation="wave"
+type="button">
+
+Join the Waitlist →
+
+</button>
 
 </div>
 
 </div>
+
 
 <div class="divider"></div>
+
 
 <div id="how" style="text-align:left;">
 
@@ -151,110 +116,148 @@ title="Can Crush Waitlist">
 How it works
 </div>
 
+
 <ol style="margin:0;padding-left:18px;line-height:1.7;color:rgba(243,245,255,.9);">
+
 <li>Crush a can.</li>
 <li>Place a coin next to it for scale.</li>
 <li>Upload the photo.</li>
 <li>We measure your crush and rank it.</li>
 <li>Share your score and talk your trash politely (or not).</li>
+
 </ol>
 
 </div>
 
+
 <div class="links">
+
 <a href="/privacy">Privacy</a>
 <a href="/terms">Terms</a>
 <a href="mailto:support@cancrush.ai">Support</a>
+
 </div>
 
 </div>
+
+
 
 <!-- RIGHT CARD -->
 
 <div class="card">
 
-<div class="card-topline"></div>
-
 <div style="font-weight:900;font-size:16px;margin-bottom:10px;">
 Launch perks
 </div>
 
+
 <div class="kpiGrid">
+
 
 <div class="kpi">
 <div class="label">Founder badge</div>
 <div class="value">Early-access flair</div>
 </div>
 
+
 <div class="kpi">
 <div class="label">Invite rewards</div>
 <div class="value">Unlockables</div>
 </div>
+
 
 <div class="kpi">
 <div class="label">Tailgate mode</div>
 <div class="value">Time-boxed battles</div>
 </div>
 
+
 <div class="kpi">
 <div class="label">Share cards</div>
 <div class="value">Instant brag posts</div>
 </div>
 
+
 </div>
 
+
 <div class="divider"></div>
+
 
 <div style="font-weight:900;font-size:16px;margin-bottom:8px;">
 The viral loop (simple)
 </div>
 
+
 <div class="small">
+
 Every crush generates a shareable score card.
+
 Friends tap it, download the app, and challenge you back.
+
 Groups can run “best crush tonight” competitions — perfect for campuses, tailgates, and parties.
+
 </div>
 
+
 <div class="divider"></div>
+
 
 <div style="font-weight:900;font-size:16px;margin-bottom:8px;">
 Support
 </div>
 
+
 <div class="small">
+
 Questions, partnerships, or “my buddy cheated” complaints:
+
 <a href="mailto:support@cancrush.ai" style="color:rgba(243,245,255,.92)">
 support@cancrush.ai
 </a>
+
 </div>
+
 
 </div>
 
 </div>
 
 </div>
+
+
+
+<!-- TALLY POPUP SCRIPT -->
 
 <script>
+
 var d=document,
 w="https://tally.so/widgets/embed.js",
+
 v=function(){
-  if(typeof Tally!=="undefined"){
-    Tally.loadEmbeds();
-  } else {
-    d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){
-      e.src=e.dataset.tallySrc;
-    });
-  }
-};
-if(typeof Tally!=="undefined"){v();}
-else if(d.querySelector('script[src="'+w+'"]')==null){
-  var s=d.createElement("script");
-  s.src=w;
-  s.onload=v;
-  s.onerror=v;
-  d.body.appendChild(s);
+
+if(typeof Tally!=="undefined"){
+Tally.loadEmbeds();
 }
+
+};
+
+if(typeof Tally!=="undefined"){v();}
+
+else if(d.querySelector('script[src="'+w+'"]')==null){
+
+var s=d.createElement("script");
+
+s.src=w;
+s.onload=v;
+s.onerror=v;
+
+d.body.appendChild(s);
+
+}
+
 </script>
+
 
 </body>
 
