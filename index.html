@@ -4,158 +4,221 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Can Crush</title>
-  <meta name="description" content="Crush a can. Drop a coin for scale. Upload the photo. Get ranked on the global leaderboard." />
+  <meta
+    name="description"
+    content="Crush a can. Drop a coin for scale. Upload the photo. Get ranked on the Can Crush leaderboard."
+  />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <div style="font-size:16px;">Can Crush</div>
-          <div style="font-size:12px;color:rgba(243,245,255,.7);margin-top:2px;">AI-powered crush ranking</div>
-        </div>
-      </div>
-      <div class="pill">Live: cancrush.ai</div>
-    </div>
+  <div class="page-shell">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
 
-    <div class="hero">
-      <div class="card">
-        <h1 class="h1">Crush a can.<br>Get ranked.</h1>
-        <p class="sub">
-          Drop a coin for scale, snap the photo, and upload. Can Crush measures your crush and ranks it on the global leaderboard.
-          Built for tailgates, backyard battles, and internet bragging rights.
-        </p>
+    <main class="container">
+      <section class="hero-card">
+        <div class="hero-topbar">
+          <div class="brand-wrap">
+            <div class="brand-badge">CC</div>
+            <div>
+              <div class="brand-name">Can Crush</div>
+              <div class="brand-sub">AI-powered crushed-can competition</div>
+            </div>
+          </div>
 
-        <div class="badges">
-          <span>🥇 Global leaderboard</span>
-          <span>👥 Friends & groups</span>
-          <span>📸 Upload + verify</span>
-          <span>🔥 Tailgate mode</span>
+          <div class="launch-pill">Founding crushers wanted</div>
         </div>
 
-        <div class="divider"></div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Tailgates. Backyards. Bragging rights.</div>
 
-        <div style="position:relative;">
-          <div style="font-weight:800;font-size:18px;">Join the waitlist</div>
-          <div class="small">Get early access + founder badge drops. No spam. Unsubscribe anytime.</div>
+            <h1>
+              Crush a can.<br />
+              Prove it.<br />
+              Get ranked.
+            </h1>
 
-          <form class="form" id="waitlistForm">
-            <input class="input" type="email" name="email" id="email" placeholder="you@example.com" required />
-            <button class="btn btnPrimary" type="submit">Join Waitlist</button>
-            <a class="btn btnGhost" href="#how">How it works</a>
-          </form>
+            <p class="hero-text">
+              Drop a coin next to your crushed can for scale, upload the photo,
+              and let Can Crush measure your result. Then climb the leaderboard,
+              call out your friends, and settle the argument with receipts.
+            </p>
 
-          <div class="toast" id="toastOk">✅ You’re on the list. Check your inbox soon.</div>
-          <div class="toast err" id="toastErr">❌ Something went wrong. Try again in a minute.</div>
+            <div class="hero-tags">
+              <span>🏆 Global leaderboard</span>
+              <span>📸 AI measurement</span>
+              <span>🎉 Tailgate ready</span>
+              <span>👥 Friends & groups</span>
+            </div>
 
-          <div class="small" style="margin-top:12px;">
-            Prefer email? <a href="mailto:support@cancrush.ai?subject=Can Crush Waitlist" style="color:rgba(243,245,255,.92)">support@cancrush.ai</a>
+            <div class="waitlist-panel">
+              <h2>Join the launch waitlist</h2>
+              <p>
+                Get early access, founder status, and first crack at the leaderboard.
+              </p>
+
+              <form id="waitlistForm" class="waitlist-form">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                />
+                <button type="submit">Join Waitlist</button>
+              </form>
+
+              <div id="toastOk" class="toast toast-success">
+                ✅ You’re on the list. Founder access is coming soon.
+              </div>
+
+              <div id="toastErr" class="toast toast-error">
+                ❌ Something went wrong. Please try again.
+              </div>
+
+              <p class="small-note">
+                Questions? Reach us at
+                <a href="mailto:support@cancrush.ai">support@cancrush.ai</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="side-card leaderboard-card">
+              <div class="card-title">Top Crushes Preview</div>
+              <div class="leaderboard-list">
+                <div class="leaderboard-row">
+                  <span class="rank">1</span>
+                  <span class="name">Tyler</span>
+                  <span class="score">2.18 in</span>
+                </div>
+                <div class="leaderboard-row">
+                  <span class="rank">2</span>
+                  <span class="name">Megan</span>
+                  <span class="score">2.21 in</span>
+                </div>
+                <div class="leaderboard-row">
+                  <span class="rank">3</span>
+                  <span class="name">Jake</span>
+                  <span class="score">2.26 in</span>
+                </div>
+                <div class="leaderboard-row">
+                  <span class="rank">4</span>
+                  <span class="name">Chris</span>
+                  <span class="score">2.31 in</span>
+                </div>
+              </div>
+              <div class="card-footnote">
+                Smaller crush. Better rank. Bigger bragging rights.
+              </div>
+            </div>
+
+            <div class="side-card perks-card">
+              <div class="card-title">Founder Perks</div>
+              <ul class="perks-list">
+                <li>Founder badge eligibility</li>
+                <li>Early access to challenge mode</li>
+                <li>First look at group competitions</li>
+                <li>Front-row status when the leaderboard opens</li>
+              </ul>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="divider"></div>
-
-        <div id="how" style="position:relative;text-align:left;">
-          <div style="font-weight:900;font-size:16px;margin-bottom:8px;">How it works</div>
-          <ol style="margin:0;padding-left:18px;line-height:1.7;color:rgba(243,245,255,.9);">
+      <section class="info-grid">
+        <div class="info-card">
+          <h3>How it works</h3>
+          <ol>
             <li>Crush a can.</li>
             <li>Place a coin next to it for scale.</li>
             <li>Upload the photo.</li>
-            <li>We measure your crush and rank it.</li>
-            <li>Share your score and talk your trash politely (or not).</li>
+            <li>Can Crush measures it and ranks the result.</li>
+            <li>Share your score and challenge the next victim.</li>
           </ol>
         </div>
 
-        <div class="links">
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
+        <div class="info-card">
+          <h3>Why people will love it</h3>
+          <p>
+            It’s simple, competitive, weirdly satisfying, and made for groups.
+            Perfect for college tailgates, backyard parties, game days, and
+            internet flexing.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>What’s coming</h3>
+          <p>
+            Friends lists, group competitions, tailgate battle mode, shareable
+            score cards, and more ways to prove your crush deserves respect.
+          </p>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
           <a href="mailto:support@cancrush.ai">Support</a>
         </div>
-      </div>
-
-      <div class="card">
-        <div style="position:relative;">
-          <div style="font-weight:900;font-size:16px;margin-bottom:10px;">Launch perks</div>
-          <div class="kpiGrid">
-            <div class="kpi">
-              <div class="label">Founder badge</div>
-              <div class="value">Early-access flair</div>
-            </div>
-            <div class="kpi">
-              <div class="label">Invite rewards</div>
-              <div class="value">Unlockables</div>
-            </div>
-            <div class="kpi">
-              <div class="label">Tailgate mode</div>
-              <div class="value">Time-boxed battles</div>
-            </div>
-            <div class="kpi">
-              <div class="label">Share cards</div>
-              <div class="value">Instant brag posts</div>
-            </div>
-          </div>
-
-          <div class="divider"></div>
-
-          <div style="font-weight:900;font-size:16px;margin-bottom:8px;">The viral loop (simple)</div>
-          <div class="small">
-            Every crush generates a shareable score card. Friends tap it, download the app, and challenge you back.
-            Groups can run “best crush tonight” competitions — perfect for campuses, tailgates, and parties.
-          </div>
-
-          <div class="divider"></div>
-
-          <div style="font-weight:900;font-size:16px;margin-bottom:8px;">Support</div>
-          <div class="small">
-            Questions, partnerships, or “my buddy cheated” complaints:
-            <a href="mailto:support@cancrush.ai" style="color:rgba(243,245,255,.92)">support@cancrush.ai</a>
-          </div>
+        <div class="footer-copy">
+          © 2026 Can Crush
         </div>
-      </div>
-    </div>
+      </footer>
+    </main>
   </div>
 
-<script>
-(async function(){
-  const form = document.getElementById("waitlistForm");
-  const email = document.getElementById("email");
-  const ok = document.getElementById("toastOk");
-  const err = document.getElementById("toastErr");
+  <script>
+    (function () {
+      const form = document.getElementById("waitlistForm");
+      const emailInput = document.getElementById("email");
+      const toastOk = document.getElementById("toastOk");
+      const toastErr = document.getElementById("toastErr");
 
-  function show(el){
-    ok.style.display = "none";
-    err.style.display = "none";
-    el.style.display = "block";
-  }
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    ok.style.display = "none";
-    err.style.display = "none";
-
-    const payload = { email: email.value.trim() };
-    if(!payload.email) return;
-
-    try{
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify(payload)
-      });
-
-      if(res.ok){
-        email.value = "";
-        show(ok);
-      }else{
-        show(err);
+      function hideToasts() {
+        toastOk.style.display = "none";
+        toastErr.style.display = "none";
       }
-    }catch(_){
-      show(err);
-    }
-  });
-})();
-</script>
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        hideToasts();
+
+        const email = emailInput.value.trim();
+        if (!email) {
+          toastErr.textContent = "❌ Please enter a valid email address.";
+          toastErr.style.display = "block";
+          return;
+        }
+
+        try {
+          const response = await fetch("/api/waitlist", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+          });
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            toastErr.textContent = "❌ Signup failed. " + errorText;
+            toastErr.style.display = "block";
+            return;
+          }
+
+          emailInput.value = "";
+          toastOk.textContent = "✅ You’re on the list. Founder access is coming soon.";
+          toastOk.style.display = "block";
+        } catch (error) {
+          toastErr.textContent = "❌ Something went wrong. Please try again.";
+          toastErr.style.display = "block";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
