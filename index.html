@@ -145,23 +145,17 @@
         body: JSON.stringify(payload)
       });
 
-if (res.ok) {
-  const data = await res.json();
-  email.value = "";
-  ok.textContent = "✅ Success: " + JSON.stringify(data);
-  show(ok);
-} else {
-  const text = await res.text();
-  err.textContent = "❌ Error: " + text;
-  show(err);
-}
-} catch (e) {
-  err.textContent = "❌ Network/JS error: " + (e?.message || "unknown");
-  show(err);
-}
+      if(res.ok){
+        email.value = "";
+        show(ok);
+      }else{
+        show(err);
+      }
+    }catch(_){
+      show(err);
+    }
   });
 })();
 </script>
 </body>
 </html>
-
