@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ai.cancrush.app",
+      "sha256_cert_fingerprints": [
+        "A9:80:E2:01:94:19:40:F5:BA:8D:B6:A0:FA:F3:4C:C4:8C:0F:FD:12:F8:00:6A:6F:9E:35:9B:9E:97:9D:20:9D",
+        "73:4D:15:B1:58:09:70:BE:F1:32:08:90:4F:E5:0A:CD:7B:84:E1:1F:FD:58:26:43:50:F0:00:48:CB:3C:83:9B"
+      ]
+    }
+  }
+]
