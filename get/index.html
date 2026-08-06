@@ -60,28 +60,30 @@
       text-align: center;
     }
 
-    /* Big display headline. "CRUSH" is squashed vertically to visually
-       communicate a flattened can — a subtle brand-native flourish. */
+    /* Display headline — matches the main cancrush.ai brand treatment:
+       single-color "Can Crush" wordmark paired with the shiny gradient
+       logo circle. Same visual identity as the site nav, scaled up for
+       a landing-screen hero. */
     .display {
-      font-weight: 900;
-      letter-spacing: -2px;
-      line-height: 1;
-      margin: 0;
       display: inline-flex;
-      align-items: baseline;
-      gap: 12px;
+      align-items: center;
+      gap: 18px;
+      margin: 0;
     }
-    .display .can {
-      font-size: 88px;
+    .display .logo {
+      /* Uses .logo from styles.css (gradient orange/gold circle with
+         the shine animation). Bumped up for the display context. */
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      flex-shrink: 0;
+    }
+    .display .name {
+      font-weight: 800;
+      font-size: 56px;
+      letter-spacing: -1.5px;
       color: var(--text);
-    }
-    .display .crush {
-      font-size: 96px;
-      color: var(--accent);
-      transform: scaleY(0.55);
-      transform-origin: center bottom;
-      display: inline-block;
-      text-shadow: 0 6px 24px rgba(255, 90, 31, 0.35);
+      line-height: 1;
     }
 
     .tag {
@@ -166,8 +168,9 @@
     }
 
     @media (max-width: 480px) {
-      .display .can { font-size: 64px; }
-      .display .crush { font-size: 72px; }
+      .display { gap: 14px; }
+      .display .logo { width: 48px; height: 48px; border-radius: 16px; }
+      .display .name { font-size: 40px; letter-spacing: -1px; }
       .tag { font-size: 16px; }
       .badge { min-width: 0; flex: 1 1 auto; padding: 12px 16px; }
       .badge .txt .big { font-size: 17px; }
@@ -178,7 +181,8 @@
 <body>
   <div class="wrap-get">
     <h1 class="display" aria-label="Can Crush">
-      <span class="can">CAN</span><span class="crush">CRUSH</span>
+      <span class="logo" aria-hidden="true"></span>
+      <span class="name">Can Crush</span>
     </h1>
 
     <p class="tag">

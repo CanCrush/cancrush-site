@@ -87,18 +87,9 @@
 
           <div style="margin-top:18px;">
 
-            <button
-              class="btn btnPrimary"
-              data-tally-open="RG4dav"
-              data-tally-layout="modal"
-              data-tally-width="420"
-              data-tally-overlay="1"
-              data-tally-hide-title="1"
-              data-tally-emoji-text="🔥"
-              data-tally-emoji-animation="wave"
-              type="button">
-              Join the Waitlist →
-            </button>
+            <a href="/get" class="btn btnPrimary">
+              Download Can Crush →
+            </a>
 
           </div>
 
@@ -242,31 +233,6 @@
   </div>
 
 
-
-  <!-- TALLY POPUP SCRIPT -->
-
-  <script>
-    var d = document,
-      w = "https://tally.so/widgets/embed.js",
-
-      v = function () {
-        if (typeof Tally !== "undefined") {
-          Tally.loadEmbeds();
-        }
-      };
-
-    if (typeof Tally !== "undefined") {
-      v();
-    } else if (d.querySelector('script[src="' + w + '"]') == null) {
-      var s = d.createElement("script");
-
-      s.src = w;
-      s.onload = v;
-      s.onerror = v;
-
-      d.body.appendChild(s);
-    }
-  </script>
 
 </body>
 
