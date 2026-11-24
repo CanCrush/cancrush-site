@@ -7,7 +7,7 @@
 
   <title>Can Crush at Venues | Turn Recycling Into the Night's Best Game</title>
 
-  <meta name="description" content="A floor graphic beside your cans-only bins turns recycling into a live contest: fans crush a can, scan a QR, and compete for concession credits. No app, no staffing — and a live cans-crushed counter your sponsor will love." />
+  <meta name="description" content="A floor graphic beside your cans-only bins turns recycling into a live contest: fans crush a can, scan a QR, and compete for concession credits. No app, no added staff — and a live cans-crushed counter your sponsor will love." />
 
   <link rel="canonical" href="https://cancrush.ai/venues/" />
   <link rel="stylesheet" href="/styles.css" />
@@ -54,17 +54,49 @@
           A floor mat beside your cans-only bins: fans stomp a can flat,
           scan the QR, and they're on the event's live leaderboard.
           Smallest crush each period wins a concession credit, claimed at
-          the stand that night. Every entry is one more can recycled.
+          the stand that night. Every entry is one more can crushed at
+          the bin.
         </p>
 
 
         <div class="badges">
           <span>📵 No app install</span>
-          <span>🧑‍🤝‍🧑 Zero staffing</span>
+          <span>🧑‍🤝‍🧑 No added staff</span>
           <span>🥤 Concession prizes</span>
-          <span>♻️ Every entry = a can recycled</span>
+          <span>♻️ Every entry = a can crushed at the bin</span>
           <span>📊 Live crowd counter</span>
         </div>
+
+
+        <!-- Short demo video of the contest in use. Set VENUE_VIDEO_URL
+             below to a YouTube/Vimeo embed URL or a direct .mp4 link and
+             the player appears here; while it is empty, nothing renders. -->
+        <div id="venueVideo" style="display:none;margin-top:18px;"></div>
+        <script>
+          var VENUE_VIDEO_URL = "";
+          (function () {
+            if (!VENUE_VIDEO_URL) return;
+            var host = document.getElementById("venueVideo");
+            var el;
+            if (/\.(mp4|webm|mov)(\?|$)/i.test(VENUE_VIDEO_URL)) {
+              el = document.createElement("video");
+              el.src = VENUE_VIDEO_URL;
+              el.controls = true;
+              el.playsInline = true;
+            } else {
+              el = document.createElement("iframe");
+              el.src = VENUE_VIDEO_URL;
+              el.allow = "fullscreen";
+              el.loading = "lazy";
+              el.style.aspectRatio = "16/9";
+              el.style.border = "0";
+            }
+            el.style.width = "100%";
+            el.style.borderRadius = "12px";
+            host.appendChild(el);
+            host.style.display = "block";
+          })();
+        </script>
 
 
         <div class="divider"></div>
@@ -120,7 +152,8 @@
           </div>
 
           <div class="small">
-            Pilot-ready today. One mat, one evening, zero staff.
+            Built and tested end to end — we're looking for our first
+            pilot night. One mat, one evening, no added staff.
           </div>
 
 
@@ -129,6 +162,10 @@
             <a href="mailto:support@cancrush.ai?subject=Venue%20contest%20partnership" class="btn btnPrimary">
               Talk to us →
             </a>
+
+            <div class="small" style="margin-top:8px;">
+              You'll be talking to Rob Hancharick.
+            </div>
 
           </div>
 
@@ -158,33 +195,33 @@
         <div class="kpiGrid">
 
           <div class="kpi">
-            <div class="label">Zero staffing</div>
+            <div class="label">No added staff</div>
             <div class="value">Rounds open, close, and crown winners automatically</div>
           </div>
 
           <div class="kpi">
             <div class="label">Concession traffic</div>
-            <div class="value">Prizes are credits, timed so winners redeem before stands close</div>
+            <div class="value">Prizes are credits; rounds can be timed so winners redeem before stands close</div>
           </div>
 
           <div class="kpi">
             <div class="label">The crowd total</div>
-            <div class="value">A live "cans crushed tonight" counter — beat last Friday</div>
+            <div class="value">A live "cans crushed tonight" counter, kept per event so nights compare</div>
           </div>
 
           <div class="kpi">
             <div class="label">Sponsor surfaces</div>
-            <div class="value">Logo on the mat, the contest page, the big-screen board, and the results email</div>
+            <div class="value">Logo on the mat, the contest page, and the big-screen board</div>
           </div>
 
           <div class="kpi">
             <div class="label">Venue-grade mats</div>
-            <div class="value">Certified anti-slip floor graphics, residue-free removal</div>
+            <div class="value">Designed for certified anti-slip floor-graphic materials, residue-free removal</div>
           </div>
 
           <div class="kpi">
             <div class="label">Arena networks</div>
-            <div class="value">Tiny pages, on-phone photo compression, upload retry</div>
+            <div class="value">Tiny pages, on-phone photo compression, failed uploads retry with a tap</div>
           </div>
 
           <div class="kpi">
@@ -194,7 +231,7 @@
 
           <div class="kpi">
             <div class="label">Compacted at the bin</div>
-            <div class="value">Every entry arrives stomped flat — bins fill slower, fewer swaps and hauls</div>
+            <div class="value">Every entry is stomped flat — a crushed can takes a fraction of the space</div>
           </div>
 
         </div>
@@ -214,9 +251,7 @@
           fingerprinted: re-photographing the same can is caught with a
           friendly nudge, and the same can can never win twice — even
           handed to a friend. Boards are split by can size, with one spot
-          and one prize per person per round. In benchmark testing across
-          hundreds of photo pairs, the duplicate check produced zero false
-          accusations.
+          and one prize per person per round.
         </div>
 
 
@@ -229,12 +264,12 @@
 
 
         <div class="small">
-          Every entry is a can physically crushed and dropped in the
-          aluminum stream — and the contest counts them, per event, all
-          season. Participation numbers, unique entrants, and cans per
-          night roll up into the kind of report a recycling program can
-          publish. Fans leave with one more association: your brand, and
-          the most fun they've had recycling.
+          Every entry is a can physically crushed right at the bin — and
+          the contest counts them, per event, all season. Per event we
+          can report entries, unique entrants, and the live crowd total —
+          numbers a recycling program can publish. Fans leave with one
+          more association: your brand, and the most fun they've had
+          recycling.
         </div>
 
 
@@ -249,11 +284,10 @@
         <div class="small">
           You provide floor space beside the bins, concession redemption of
           short winner codes, and any screen for the live board. We provide
-          the mats, the contest, and the morning-after results email to
-          every entrant. Prizes are yours to choose — we recommend
-          concession credits for the stand traffic, but the system just
-          mints short codes; prize wording and value are configurable
-          per event.
+          the contest and the morning-after results email to every entrant.
+          Prizes are yours to choose — we recommend concession credits for
+          the stand traffic, but the system just mints short codes; prize
+          wording and value are configurable per event.
         </div>
 
 
@@ -266,13 +300,12 @@
 
 
         <div class="small">
-          Pilot mats are on us. For longer programs, mat production is a
-          standard sponsorship-activation cost — we print to spec, or your
-          signage vendor can, working from our one-page print spec. Every
-          installed mat is scale-calibrated in place, so who prints never
-          affects measurement accuracy. Your crew chooses placement and
-          lays the mats — your floor, your rules. Slip-certification
-          sheets for the mat materials are available on request.
+          The mat is designed for certified anti-slip floor-graphic
+          materials and prints from our one-page spec at your or your
+          sponsor's preferred large-format vendor. Every installed mat is
+          scale-calibrated in place, so who prints never affects
+          measurement accuracy. Your crew chooses placement and lays the
+          mats — your floor, your rules.
         </div>
 
       </div>
